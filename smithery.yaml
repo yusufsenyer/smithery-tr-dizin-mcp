@@ -1,12 +1,13 @@
 startCommand:
   type: stdio
 configSchema:
-  # JSON Schema defining the configuration options for the MCP
   type: object
   properties: {}
 commandFunction: |-
   (config) => ({
     command: 'python',
-    args: ['-m', 'server']
+    args: ['server.py']
   })
 exampleConfig: {}
+timeout: 30000
+memory: 512
