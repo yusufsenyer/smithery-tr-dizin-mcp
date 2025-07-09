@@ -14,10 +14,11 @@
    - Select the `smithery-tr-dizin-mcp` repository
 
 2. **Deploy with One Click**
-   - The `smithery.yaml` configuration is already set up
+   - The `smithery.yaml` configuration is optimized for Smithery
+   - **No Docker required** - uses native Python runtime
    - Click "Deploy" - Smithery will automatically:
      - Install Python dependencies from `requirements.txt`
-     - Start the MCP server using `python -m server`
+     - Start the MCP server using `python server.py`
      - Make it available via stdio protocol
 
 3. **Test the Deployment**
@@ -25,6 +26,9 @@
      - "yapay zeka makalelerini bul"
      - "machine learning"
      - "doğal dil işleme"
+
+### 🔧 Troubleshooting
+If you encounter deployment issues, see `TROUBLESHOOTING.md` for solutions.
 
 ## 🧪 Local Testing
 
@@ -41,8 +45,11 @@ python test_mcp.py
 python test_full_mcp.py
 ```
 
-### Test with Docker
+### Test with Docker (Optional)
 ```bash
+# Use the simple Dockerfile if needed
+cp Dockerfile.simple Dockerfile
+
 # Build container
 docker build -t trdizin-mcp .
 
@@ -96,16 +103,18 @@ configSchema:
 commandFunction: |-
   (config) => ({
     command: 'python',
-    args: ['-m', 'server']
+    args: ['server.py']
   })
 exampleConfig: {}
+timeout: 30000
+memory: 512
 ```
 
 ### Dependencies (`requirements.txt`)
 ```
-requests>=2.28.0
-mcp>=1.0.0
-urllib3>=1.26.0
+requests==2.32.4
+mcp==1.10.1
+urllib3==2.5.0
 ```
 
 ## 📈 Usage Examples
