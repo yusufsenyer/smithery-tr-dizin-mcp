@@ -1,3 +1,4 @@
+# Alternative Smithery configuration - try this if main config fails
 startCommand:
   type: stdio
 configSchema:
@@ -5,7 +6,7 @@ configSchema:
   properties: {}
 commandFunction: |-
   (config) => ({
-    command: 'python3',
-    args: ['server.py']
+    command: 'python',
+    args: ['-u', 'server.py']
   })
 exampleConfig: {}

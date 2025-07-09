@@ -1,6 +1,13 @@
+#!/usr/bin/env python3
 """
 TRDizin MCP Server - Search Turkish academic articles from TRDizin database.
 """
+import sys
+import os
+
+# Ensure the current directory is in the Python path
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 from mcp.server.fastmcp import FastMCP
 from trdizin_client import TRDizinClient
 import json

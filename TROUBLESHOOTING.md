@@ -2,28 +2,28 @@
 
 ## 🚨 Common Smithery.ai Deployment Issues
 
-### Issue: "Using Dockerfile from repository - Unexpected internal error or timeout"
+### Issue: "Unexpected internal error or timeout"
 
-#### **Solution 1: Use Simple Dockerfile**
-Smithery.ai sometimes has issues with complex Dockerfiles. Use the simplified version:
+#### **✅ CURRENT STATUS: Dockerfile Removed**
+The project now uses **native Python runtime** without Docker for better Smithery.ai compatibility.
+
+#### **Solution 1: Use Current Configuration (Recommended)**
+The project is now optimized for Smithery.ai:
+- ✅ No Dockerfile (uses native Python)
+- ✅ Simplified `smithery.yaml`
+- ✅ Minimal `requirements.txt`
+- ✅ All tests passing
+
+#### **Solution 2: Try Alternative Configuration**
+If the main config still fails, try the alternative:
 
 ```bash
-# Rename current Dockerfile
-mv Dockerfile Dockerfile.complex
+# Backup current config
+cp smithery.yaml smithery.yaml.backup
 
-# Use the simple version
-mv Dockerfile.simple Dockerfile
+# Use alternative config
+cp smithery.alternative.yaml smithery.yaml
 ```
-
-#### **Solution 2: Remove Dockerfile Completely**
-Smithery.ai can run Python projects without Docker:
-
-```bash
-# Remove Dockerfile to let Smithery use native Python
-rm Dockerfile
-```
-
-The `smithery.yaml` configuration will handle the Python execution directly.
 
 #### **Solution 3: Update smithery.yaml**
 Ensure your `smithery.yaml` has proper timeout and memory settings:
